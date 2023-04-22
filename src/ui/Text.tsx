@@ -1,7 +1,9 @@
 import React, { FC } from 'react'
 import { Typography, TypographyProps } from '@mui/material'
 
-const Text: FC<TypographyProps> = (props) => {
+export interface IText extends TypographyProps<'span', { component?: string }> {}
+
+const Text: FC<IText> = (props) => {
 	const { children } = props
 
 	return <Typography {...props}>{children}</Typography>

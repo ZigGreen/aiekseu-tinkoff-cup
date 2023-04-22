@@ -6,7 +6,7 @@ const UserGlobalStyles: FC<{ theme: Theme }> = () => (
 		styles={{
 			body: {
 				margin: 0,
-				backgroundColor: '#f0f0f0',
+				backgroundColor: '#e0e0e0;',
 			},
 		}}
 	/>

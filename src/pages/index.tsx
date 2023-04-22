@@ -1,11 +1,33 @@
-import React from 'react'
+import React, { FC, PropsWithChildren } from 'react'
 import { NextPage } from 'next'
-import { HelloWorldText } from '@/modules/HomePage'
+import { Grid, styled } from '@mui/material'
+import { AccountsCard } from '@/modules/Accounts'
+import { HistoryList } from '@/modules/History'
+import { TagsCard } from '@/modules/Tags'
+import { GroupsCard } from '@/modules/Groups'
 
 const Home: NextPage = () => (
-	<>
-		<HelloWorldText />
-	</>
+	<Root container>
+		<Container>
+			<AccountsCard />
+			<TagsCard />
+			<GroupsCard />
+		</Container>
+		<Container>
+			<HistoryList />
+		</Container>
+	</Root>
+)
+
+const Root = styled(Grid)({
+	display: 'flex',
+	flexDirection: 'row',
+})
+
+const Container: FC<PropsWithChildren> = ({ children }) => (
+	<Grid item xs={12} md={6}>
+		{children}
+	</Grid>
 )
 
 export default Home
