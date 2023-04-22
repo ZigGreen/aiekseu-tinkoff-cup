@@ -8,7 +8,15 @@ This is a repository for [Aleksey Kudashkin's](https://t.me/aiekseu) project.
 
 ## To start the app locally
 
-First, build the project:
+First, install the dependencies:
+
+```bash
+npm install
+# or
+yarn install
+```
+
+Next, build the project:
 
 ```bash
 npm run build
