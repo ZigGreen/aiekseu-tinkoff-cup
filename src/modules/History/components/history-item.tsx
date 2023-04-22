@@ -1,9 +1,9 @@
 import React, { FC } from 'react'
 import { Box, Divider, styled } from '@mui/material'
-import { IExpense } from '@/model/data-types'
+import { IExpense, IReceipt } from '@/model/data-types'
 import Text from '@/ui/Text'
 
-const HistoryItem: FC<{ item: IExpense }> = ({ item }) => (
+const HistoryItem: FC<{ item: IExpense | IReceipt }> = ({ item }) => (
 	<>
 		<Root py={2}>
 			<Line>
@@ -22,7 +22,7 @@ const HistoryItem: FC<{ item: IExpense }> = ({ item }) => (
 				</Text>
 			</Line>
 			<Line>
-				<Text variant={'body1'}>{item.group?.name}</Text>
+				<Text variant={'body1'}>{'group' in item && item.group?.name}</Text>
 				<Text variant={'body1'}>
 					{item.tag && '#'}
 					{item.tag?.name}

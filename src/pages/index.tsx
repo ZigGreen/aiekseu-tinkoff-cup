@@ -5,18 +5,22 @@ import { AccountsCard } from '@/modules/Accounts'
 import { HistoryList } from '@/modules/History'
 import { TagsCard } from '@/modules/Tags'
 import { GroupsCard } from '@/modules/Groups'
+import SuperInput from '@/modules/SuperInput'
 
 const Home: NextPage = () => (
-	<Root container>
-		<Container>
-			<AccountsCard />
-			<TagsCard />
-			<GroupsCard />
-		</Container>
-		<Container>
-			<HistoryList />
-		</Container>
-	</Root>
+	<>
+		<SuperInput />
+		<Root container>
+			<Container>
+				<AccountsCard />
+				<TagsCard />
+				<GroupsCard />
+			</Container>
+			<Container>
+				<HistoryList />
+			</Container>
+		</Root>
+	</>
 )
 
 const Root = styled(Grid)({

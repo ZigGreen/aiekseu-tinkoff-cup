@@ -10,7 +10,7 @@ const AccountsCard: FC = () => {
 
 	return (
 		<Card>
-			<Text variant={'h4'} component={'p'} width={'100%'} textAlign={'center'} pb={2}>
+			<Text variant={'h5'} component={'p'} pb={2}>
 				Счета
 			</Text>
 			<AccountsContainer

@@ -6,6 +6,7 @@ import expenseTagsReducer from './expense-tags'
 import receiptTagsReducer from './receipt-tags'
 import receiptsReducer from './receipts'
 import filtersReducer from './filters'
+import inputReducer from './input'
 
 export const rootReducer = combineReducers({
 	accounts: accountsReducer,
@@ -15,4 +16,5 @@ export const rootReducer = combineReducers({
 	receiptTags: receiptTagsReducer,
 	receipts: receiptsReducer,
 	filters: filtersReducer,
+	input: inputReducer,
 })

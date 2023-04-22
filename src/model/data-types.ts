@@ -5,8 +5,8 @@ export interface IExpense {
 	id: string
 	amount: number
 	account: IAccount
+	group: IExpenseGroup
 	tag?: IExpenseTag
-	group?: IExpenseGroup
 	comment?: string
 	date: Date
 }
