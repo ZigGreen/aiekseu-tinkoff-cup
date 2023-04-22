@@ -13,13 +13,7 @@ const AccountsCard: FC = () => {
 			<Text variant={'h5'} component={'p'} pb={2}>
 				Счета
 			</Text>
-			<AccountsContainer
-				container
-				alignItems={'top'}
-				direction={'row'}
-				justifyContent={'space-between'}
-				rowSpacing={4}
-			>
+			<AccountsContainer container alignItems={'top'} direction={'row'} justifyContent={'start'} rowSpacing={4}>
 				{accounts.map((acc, index) => (
 					<Account item key={acc.name} xs={6} md={4}>
 						<AccountIcon index={index} />
@@ -31,6 +25,11 @@ const AccountsCard: FC = () => {
 						</Text>
 					</Account>
 				))}
+				<Account item key={'new-acc'} xs={6} md={4}>
+					<AccountIcon additional>
+						<Text>+</Text>
+					</AccountIcon>
+				</Account>
 			</AccountsContainer>
 		</Card>
 	)
@@ -45,13 +44,18 @@ const Account = styled(Grid)({
 	alignItems: 'center',
 })
 
-const AccountIcon = styled(Box, { shouldForwardProp: (props) => props !== 'index' })<{ index: number }>(
-	({ index }) => ({
-		height: 48,
-		width: 48,
-		background: accountColors[index],
-		borderRadius: '100%',
-	})
-)
+const AccountIcon = styled(Box, { shouldForwardProp: (props) => props !== 'index' && props !== 'additional' })<{
+	index?: number
+	additional?: boolean
+}>(({ index, additional = false }) => ({
+	height: 48,
+	width: 48,
+	background: !additional ? accountColors[index!] : 'transparent',
+	border: !additional ? 'none' : '1px solid black',
+	borderRadius: '100%',
+	display: 'flex',
+	alignItems: 'center',
+	justifyContent: 'center',
+}))
 
 export default AccountsCard

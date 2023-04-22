@@ -7,9 +7,10 @@ import TargetInput from '@/modules/SuperInput/components/target-input'
 import AmountInput from '@/modules/SuperInput/components/amount-input'
 import TagInput from '@/modules/SuperInput/components/tag-input'
 import CommentInput from '@/modules/SuperInput/components/comment-input'
-import { IAccount, IExpense, IExpenseGroup } from '@/model/data-types'
+import { IAccount, IExpense, IExpenseGroup, IReceipt } from '@/model/data-types'
 import { addExpense } from '@/store/reducers/expenses'
-import { minusMoney } from '@/store/reducers/accounts'
+import { minusMoney, plusMoney } from '@/store/reducers/accounts'
+import { addReceipt } from '@/store/reducers/receipts'
 
 const InputRoot: FC = () => {
 	const input = useAppSelector((state) => state.input)
@@ -30,16 +31,20 @@ const InputRoot: FC = () => {
 
 			dispatch(addExpense(expense))
 			dispatch(minusMoney({ id: input.from!.id, amount: input.amount as number }))
+		} else {
+			const receipt: IReceipt = {
+				id: URL.createObjectURL(new Blob([])).slice(-36),
+				amount: input.amount as number,
+				account: input.target as IAccount,
+				tag: input.tag,
+				comment: input.comment,
+				date: new Date(Date.now()),
+			}
+
+			dispatch(addReceipt(receipt))
+			dispatch(plusMoney({ id: input.target!.id, amount: input.amount as number }))
 		}
 	}
-
-	// id: string
-	// amount: number
-	// account: IAccount
-	// group: IExpenseGroup
-	// tag?: IExpenseTag
-	// comment?: string
-	// date: Date
 
 	return (
 		<>
