@@ -34,10 +34,13 @@ jobs:
         run: yarn build
 
       - name: Push to build branch
+        env:
+          GH_PAT: ${{ secrets.GH_PAT }}
         run: |
           git config user.name "GitHub Actions Bot"
-          git config user.email "kudashkin_aleksey@mail.ru"
+          git config user.email "<your-email-here>"
           git checkout -B build
           git add .
           git commit -m "Build and deploy from main branch"
+          git remote set-url origin "https://${GH_PAT}@github.com/${{ github.repository }}"
           git push -u origin build --force
