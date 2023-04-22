@@ -1,6 +1,18 @@
 import { combineReducers } from '@reduxjs/toolkit'
-import homeReducer from './HomePage'
+import accountsReducer from './accounts'
+import expensesReducer from './expenses'
+import expenseGroupsReducer from './expense-groups'
+import expenseTagsReducer from './expense-tags'
+import receiptTagsReducer from './receipt-tags'
+import receiptsReducer from './receipts'
+import filtersReducer from './filters'
 
 export const rootReducer = combineReducers({
-	home: homeReducer,
+	accounts: accountsReducer,
+	expenses: expensesReducer,
+	expenseGroups: expenseGroupsReducer,
+	expenseTags: expenseTagsReducer,
+	receiptTags: receiptTagsReducer,
+	receipts: receiptsReducer,
+	filters: filtersReducer,
 })
