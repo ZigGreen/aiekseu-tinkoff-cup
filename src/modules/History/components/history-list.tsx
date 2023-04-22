@@ -38,7 +38,7 @@ const HistoryList: FC = () => {
 	useEffect(() => {
 		if (expenses && receipts) {
 			const sorted = [...expenses, ...receipts].sort(
-				(a, b) => new Date(a.date).getTime() - new Date(b.date).getTime()
+				(a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
 			)
 
 			const groupedTrasactions: IHistoryItem[] = []

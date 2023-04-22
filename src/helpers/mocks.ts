@@ -1,6 +1,3 @@
-import CreditCardIcon from '@mui/icons-material/CreditCard'
-import CardGiftcardIcon from '@mui/icons-material/CardGiftcard'
-import MoneyIcon from '@mui/icons-material/Money'
 import { IAccount, ICurrency, IExpense, IExpenseGroup, IExpenseTag, IReceipt } from '@/model/data-types'
 
 export const initialCurrencies: ICurrency[] = [
@@ -30,7 +27,6 @@ export const initialAccounts: IAccount[] = [
 		name: 'дебет тинькофф',
 		currency: initialCurrencies[0],
 		bank: 2310,
-		icon: CreditCardIcon,
 		countable: true,
 	},
 	{
@@ -38,7 +34,6 @@ export const initialAccounts: IAccount[] = [
 		name: 'микрозайм',
 		currency: initialCurrencies[0],
 		bank: -25000,
-		icon: CardGiftcardIcon,
 		countable: true,
 	},
 	{
@@ -46,7 +41,6 @@ export const initialAccounts: IAccount[] = [
 		name: 'микрозайм2',
 		currency: initialCurrencies[1],
 		bank: -900,
-		icon: CardGiftcardIcon,
 		countable: true,
 	},
 	{
@@ -54,7 +48,6 @@ export const initialAccounts: IAccount[] = [
 		name: 'наличка',
 		currency: initialCurrencies[0],
 		bank: 200,
-		icon: MoneyIcon,
 		countable: true,
 	},
 ]
