@@ -9,7 +9,7 @@ import TagInput from '@/modules/SuperInput/components/tag-input'
 import CommentInput from '@/modules/SuperInput/components/comment-input'
 import { IAccount, IExpense, IExpenseGroup, IReceipt } from '@/model/data-types'
 import { addExpense } from '@/store/reducers/expenses'
-import { minusMoney, plusMoney } from '@/store/reducers/accounts'
+import { plusMoney } from '@/store/reducers/accounts'
 import { addReceipt } from '@/store/reducers/receipts'
 
 const InputRoot: FC = () => {
@@ -21,7 +21,7 @@ const InputRoot: FC = () => {
 		if (input.isExpense) {
 			const expense: IExpense = {
 				id: URL.createObjectURL(new Blob([])).slice(-36),
-				amount: input.amount as number,
+				amount: (input.amount as number) * -1,
 				account: input.from as IAccount,
 				group: input.target as IExpenseGroup,
 				tag: input.tag,
@@ -30,7 +30,7 @@ const InputRoot: FC = () => {
 			}
 
 			dispatch(addExpense(expense))
-			dispatch(minusMoney({ id: input.from!.id, amount: input.amount as number }))
+			dispatch(plusMoney({ id: input.from!.id, amount: (input.amount as number) * -1 }))
 		} else {
 			const receipt: IReceipt = {
 				id: URL.createObjectURL(new Blob([])).slice(-36),

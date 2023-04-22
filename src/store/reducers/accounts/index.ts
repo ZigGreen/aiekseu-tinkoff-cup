@@ -8,15 +8,12 @@ export const accountsSlice = createSlice({
 	name: 'accounts',
 	initialState,
 	reducers: {
-		minusMoney: (state, action: PayloadAction<{ amount: number; id: string }>) => {
-			state.find((el) => el.id === action.payload.id)!.bank -= action.payload.amount
-		},
 		plusMoney: (state, action: PayloadAction<{ amount: number; id: string }>) => {
 			state.find((el) => el.id === action.payload.id)!.bank += action.payload.amount
 		},
 	},
 })
 
-export const { minusMoney, plusMoney } = accountsSlice.actions
+export const { plusMoney } = accountsSlice.actions
 
 export default accountsSlice.reducer
