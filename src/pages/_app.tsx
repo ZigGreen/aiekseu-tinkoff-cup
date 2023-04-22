@@ -8,10 +8,11 @@ import { CacheProvider, EmotionCache } from '@emotion/react'
 import UserGlobalStyles from '@/config/theme/user-global-styles'
 import createEmotionCache from '@/config/theme/create-emotion-cache'
 import theme from '@/config/theme/light'
-import { store } from '@/store/store'
+import { setupStore } from '@/store/store'
 
 // Client-side cache, shared for the whole session of the user in the browser.
 const clientSideEmotionCache = createEmotionCache()
+const store = setupStore()
 
 export interface MyAppProps extends AppProps {
 	emotionCache?: EmotionCache
