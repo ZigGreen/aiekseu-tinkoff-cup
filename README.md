@@ -2,7 +2,11 @@
 
 This is a repository for [Aleksey Kudashkin's](https://t.me/aiekseu) project.
 
-## To see the result
+
+### **[Check Demo](https://aiekseu-tinkoff-cup.vercel.app/).**
+
+
+## To start the app locally
 
 First, build the project:
 
